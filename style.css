@@ -97,12 +97,6 @@ ul {
   padding-left: 0;
 }
 
-#menu-2 .menu-item-list, 
-#menu-3 .menu-item-list {
-  column-count: 2;
-  column-gap: 20px;
-}
-
 .menu-item-list li a,
 .menu-item-list li a:visited,
 .menu-item-list li a:focus {
