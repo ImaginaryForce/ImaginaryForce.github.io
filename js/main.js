@@ -1,7 +1,6 @@
 const button1 = document.getElementById('menu-1-button');
 const button2 = document.getElementById('menu-2-button');
 const button3 = document.getElementById('menu-3-button');
-const button4 = document.getElementById('menu-4-button');
 
 const dropdown1 = document.getElementById('menu-1');
 const dropdown2 = document.getElementById('menu-2');
