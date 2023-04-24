@@ -3,7 +3,7 @@ body {
 }
 
 .global-header {
-  background: linear-gradient(45deg, #3e03a4, #04e6df);
+  background: linear-gradient(90deg, #3e03a4, #04e6df);
   display: flex;
   flex-direction: row;
   justify-content: space-between;
@@ -32,6 +32,7 @@ body {
 	height: 50px;
 	overflow: hidden;
 	position: fixed;
+  z-index: 1;
 }
 
 .nav {
@@ -69,7 +70,7 @@ ul {
   position: absolute;
   top: 60px;
   width: 250px;
-  z-index: 99;
+  z-index: 1;
 }
 
 .dropdown-menu#menu-1 {
@@ -290,12 +291,6 @@ h1 {
   width: 300px;
 }
 
-.boardgame-image {
-  height: 300px;
-  background-size: cover;
-  background-position: center;
-}
-
 .boardgame-text {
   margin: 5px 20px 5px 5px;
 }
@@ -340,6 +335,20 @@ h1 {
   .hamburger-menu {
     display: none;
   }
+}
+
+.boardgame-description {
+  position: absolute;
+  top: 50%;
+  width: 100%;
+  text-align: center;
+  font-size: 18px;
+}
+
+.boardgame-image {
+  height: 300px;
+  background-size: cover;
+  background-position: center;
 }
 
 .boardgame-image-1 {
@@ -388,4 +397,38 @@ h1 {
 
 .boardgame-image-12 {
   background-image: url(https://m20336.files.wordpress.com/2021/06/g0.jpg);
+}
+
+.boardgame-image {
+  position: relative;
+  width: 100%;
+}
+
+.overlay {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 100%;
+  width: 100%;
+  opacity: 0;
+  transition: .5s ease;
+  background: linear-gradient(#3e03a4, #04e6df);
+}
+
+.boardgame-image:hover .overlay {
+  opacity: 1;
+}
+
+.overlay-text {
+  color: white;
+  font-size: 14px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  -webkit-transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+  text-align: center;
 }
