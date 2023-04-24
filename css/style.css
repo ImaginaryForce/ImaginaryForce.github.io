@@ -1,0 +1,261 @@
+body {
+    font-family: 'Lato', sans-serif;
+    color: #454545;
+  }
+  
+  .placeholder {
+    background: lightslategray;
+    height: 100vh;
+  }
+  
+  .global-header {
+    background-color: white;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    height: 40px;
+    padding: 15px 25px;
+    width: calc(100% - 50px);
+  }
+  
+  /* NAV */
+  
+  .nav-left {
+    align-items: center;
+    display: flex;
+  }
+  
+  .logo {
+    display: flex;
+    align-items: center;
+  }
+  
+  .logo svg {
+    width: 150px;
+  }
+  
+  .nav {
+    display: none;
+    flex-direction: row;
+    align-items: center;
+    margin: 0;
+    padding-left: 0;
+  }
+  
+  @media (min-width: 1085px) {
+    .nav {
+      display: flex;
+    }
+  }
+  
+  ul {
+    list-style: none;
+  }
+  
+  .nav li {
+    font-size: 14px;
+    margin: 0 20px;
+    cursor: pointer;
+  }
+  
+  .nav-right {
+    align-items: center;
+    display: flex;
+    justify-content: flex-end;
+    margin-right: 45px;
+  }
+  
+  /* DROPDOWN MENU */
+  
+  .dropdown-menu {
+    background-color: white;
+    box-shadow: 0 0 2rem rgba(0,0,0,.1); 
+    /* `display: none` hides the element when the page loads - how could we change this when our JS event takes place? */
+    display: none;
+    padding: 15px;
+    position: absolute; /* pops element up in the dom */
+    top: 60px;
+    width: 250px;
+    z-index: 10;
+  }
+  
+  /* element has this class and ID */
+  .dropdown-menu#menu-1 {
+    left: 190px;
+  }
+  
+  .dropdown-menu#menu-2 {
+    left: 290px;
+    min-width: 400px;
+  }
+  
+  .dropdown-menu#menu-3 {
+    left: 390px;
+    min-width: 400px;
+  }
+  
+  .menu-header {
+    font-size: 12px;
+    margin: 0;
+    padding: 0 10px 8px 10px;
+    text-transform: uppercase;
+  }
+  
+  .menu-item-list {
+    margin: 0;
+    padding-left: 0;
+  }
+  
+  /* https://developer.mozilla.org/en-US/docs/Web/CSS/columns 
+  https://css-tricks.com/guide-responsive-friendly-css-columns/
+  */
+  #menu-2 .menu-item-list, 
+  #menu-3 .menu-item-list {
+    column-count: 2;
+    column-gap: 20px;
+  }
+  
+  
+  .menu-item-list li a,
+  .menu-item-list li a:visited,
+  .menu-item-list li a:focus {
+    color: #454545;
+    display: block;
+    padding: 10px;
+    text-decoration: none;
+  }
+  
+  .menu-item-list li a:hover {
+    background-color: rgb(242,242,242);
+    color: #1264a3;
+  }
+  
+  /* Fade-in header */
+  #fade-in-header {
+    display: none;
+    position: fixed;
+    top: 0;
+  }
+  
+  #top-nav {
+    position: fixed;
+  }
+  
+  .show {
+    display: block;
+  }
+  
+  
+  /* SIDE MENU */
+  
+  .workspaces {
+    background-color: #611f69;
+    border-radius: 10px;
+    color: white;
+    cursor: pointer;
+    display: none;
+    padding: 8px 16px;
+    transition: all 420ms ease-in-out;
+  }
+  
+  /* Notice you can do a hover state on an element, not just <a> links */
+  .workspaces:hover {
+    background-color: #4a154b
+  }
+  
+  @media (min-width: 1085px) {
+    .workspaces {
+      /* Hidden below 1085px - see above rule */
+      display: block;
+    }  
+  }
+  
+  .hamburger-menu {
+    display: block; /* display:none starts to show up with responsive */
+    cursor: pointer;
+  }
+  
+  @media (min-width: 1085px) {
+    .hamburger-menu {
+      display: none;
+    }
+  }
+  
+  /* OFF CANVAS MENU
+  
+   * Slack has an image with a translucent bg which combines bg color and image together
+   * position: fixed with 0,0,0,0 positions streches across the viewport
+   * z-index: 2 keeps it on top of the rest of the page
+   * I'm breaking the side-menu parent into two styles, one position and on design, so you can see how this looks better
+   * You don't have to do it this way at all...but it helps to see the separation of concerns here
+   */
+  .side-menu-position {
+    padding-top: 25px;
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    z-index: 2;
+  }
+  
+  .side-menu-design {
+    background-color: #611f69;
+    background-image: url('https://s3-us-west-2.amazonaws.com/s.cdpn.io/2522641/sidebar-background.png');
+    background-size: 1300px 700px;
+    background-repeat: repeat;
+    cursor: pointer;
+    opacity: 0;
+    transform: translateX(100%);
+    transition: 0.4s ease-in-out;
+  }
+  
+  /* on top we need spacing from the border, so we have to use padding */
+  /* but we also want that bottom margin to bleed to the edge, so no margins here */
+  .side-menu-header {
+    border-bottom: 1px solid rgba(255,255,255,.1); /* based on slack look, very faint */
+    display: flex;
+    justify-content: space-between;
+    padding: 0 25px 25px 25px;  
+  }
+  
+  /* Main content is pretty easy for layouts, pattern you'll see in web dev */
+  /* The more text an element has, the easier it is to layout - BAM wisdom bomb! */
+  .side-menu-content {
+    color: #fff;
+    font-size: 24px; /* could use ems here too */
+    margin: 25px;
+    padding-left: 0;
+  }
+  
+  .side-menu-content li {
+    list-style: none;
+    margin-bottom: 25px;
+  }
+  
+  .side-menu-workspace {
+    margin-bottom: 8px;
+    text-align: center;
+  }
+  
+  .side-menu-download {
+    background-color: #fff;
+    color: #611f69;
+    padding: 15px 0;
+    text-align: center;
+    width: 100%;
+  }
+  
+  /* Sticks the nav to the top of the page */
+  
+  #top-nav {
+    position: fixed;
+  }
+  
+  
+  /* Animation classes */
+  
+  .show-menu {
+    opacity: 1;
+    transform: translateX(0%);
+  }
