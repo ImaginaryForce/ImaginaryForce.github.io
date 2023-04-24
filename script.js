@@ -9,7 +9,6 @@ const dropdown3 = document.getElementById('menu-3');
 button1.addEventListener("click", displayMenu1);
 button2.addEventListener("click", displayMenu2);
 button3.addEventListener("click", displayMenu3);
-button4.addEventListener("click", displayMenu4);
 
 const showSideMenu = document.getElementById('menu-trigger');
 const closeSideMenu = document.getElementById("menu-close");
@@ -34,12 +33,6 @@ function displayMenu3() {
   dropdown3.classList.add("show");
   dropdown1.classList.remove("show");
   dropdown2.classList.remove("show");
-}
-
-function displayMenu4() {
-  dropdown1.classList.remove("show");
-  dropdown2.classList.remove("show");
-  dropdown3.classList.remove("show");
 }
 
 function displaySideMenu() {
